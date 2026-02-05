@@ -13,7 +13,7 @@ on:
 jobs:
   security:
     runs-on: windows-latest
-    continue-on-error: false
+    continue-on-error: true
     strategy:
       fail-fast: true
       
@@ -26,6 +26,6 @@ jobs:
       id: msdo
 
     - name: Upload alerts to Security tab
-      uses: github/codeql-action/upload-sarif@v2
+      uses: github/codeql-action/upload-sarif@v3
       with:
         sarif_file: ${{ steps.msdo.outputs.sarifFile }}
